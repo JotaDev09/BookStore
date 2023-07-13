@@ -72,9 +72,9 @@ export default function Create() {
 
   return (
     <Layout>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <div>Title</div>
+      <form onSubmit={handleSubmit} className="formContainer">
+        <div className="container">
+          <div className="title">Title</div>
           <input
             type="text"
             name="title"
@@ -83,8 +83,8 @@ export default function Create() {
           />
         </div>
 
-        <div>
-          <div>Author</div>
+        <div className="container">
+          <div className="title">Author</div>
           <input
             type="text"
             name="author"
@@ -93,16 +93,16 @@ export default function Create() {
           />
         </div>
 
-        <div>
-          <div>Cover</div>
+        <div className="container">
+          <div className="title">Cover</div>
           <input type="file" name="cover" onChange={handleOnChangeFile} />
           <div>
             {!!cover ? <img src={cover} width="200" alt="preview" /> : ""}
           </div>
         </div>
 
-        <div>
-          <div>Introdution</div>
+        <div className="container">
+          <div className="title">Introduction</div>
           <input
             type="text"
             name="intro"
@@ -111,8 +111,8 @@ export default function Create() {
           />
         </div>
 
-        <div>
-          <div>Completed</div>
+        <div className="container">
+          <div className="title">Completed</div>
           <input
             type="checkbox"
             name="completed"
@@ -121,8 +121,8 @@ export default function Create() {
           />
         </div>
 
-        <div>
-          <div>Review</div>
+        <div className="container">
+          <div className="title">Review</div>
           <input
             type="text"
             name="review"
@@ -130,7 +130,7 @@ export default function Create() {
             value={review}
           />
         </div>
-        <input type="submit" value="Register book" />
+        <input type="submit" value="Register book" className="buttonStyle" />
       </form>
     </Layout>
   );

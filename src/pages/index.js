@@ -4,11 +4,14 @@ import Book from "../components/book";
 
 export default function Index() {
   const store = useAppContext();
+
   return (
     <Layout>
-      {store.items.map((item) => (
-        <Book key={item.id} item={item} />
-      ))}
+      <div className="booksContainer">
+        {store.items.map((item) => (
+          <Book key={item.id} item={item} />
+        ))}
+      </div>
     </Layout>
   );
 }

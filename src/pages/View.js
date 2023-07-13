@@ -18,14 +18,18 @@ export default function View() {
 
   return (
     <Layout>
-      <h2>{item?.title}</h2>
-      <div>
-        {item?.cover ? <img src={item?.cover} width="400" alt="" /> : ""}
+      <div className="containerView">
+        <div>
+          {item?.cover ? <img src={item?.cover} width="400" alt="" /> : ""}
+        </div>
+        <div>
+          <h2>{item?.title}</h2>
+          <div>{item?.author}</div>
+          <div>{item?.intro}</div>
+          <div>{item?.completed ? "Leido" : "Por terminar"}</div>
+          <div>{item?.review}</div>
+        </div>
       </div>
-      <div>{item?.author}</div>
-      <div>{item?.intro}</div>
-      <div>{item?.completed ? "Leido" : "Por terminar"}</div>
-      <div>{item?.review}</div>
     </Layout>
   );
 }

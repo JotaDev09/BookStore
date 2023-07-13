@@ -5,9 +5,101 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #282c34;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Index */
+.booksContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Book */
+.bookContainerStyle {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.bookInfoStyle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+}
+
+/* Navbar */
+.navContainerStyle {
+  background-color: #181d27;
+  padding: 10px;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+.linkStyle {
+  padding: 10px;
+  display: block;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+}
+
+/* Layout */
+.containerStyle {
+  width: 90%;
+  margin: 100px auto;
+}
+
+/* Create */
+.formContainer {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 15px 0;
+}
+
+.title {
+  font-size: 16px;
+  text-align: left;
+  color: white;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.buttonStyle {
+  padding: 15px 20px;
+  min-width: 200px;
+  border: none;
+  border-radius: 5px;
+  background-color: #1e9638;
+  color: white;
+  font-weight: bolder;
+  font-size: 18px;
+}
+
+/* View */
+.containerView {
+  display: flex;
+  gap: 20px;
+  color: white;
+  width: 800px;
+  margin: o auto;
 }
