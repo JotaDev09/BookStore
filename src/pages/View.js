@@ -3,10 +3,11 @@ import Layout from "../components/layout";
 import { useAppContext } from "../store/store";
 import { useState, useEffect } from "react";
 
-export default function View() {
+const View = () => {
   const [item, setItem] = useState({});
   const params = useParams();
   const store = useAppContext();
+  const { deleteItem } = useAppContext();
 
   useEffect(() => {
     const book = store.getItem(params.bookId);
@@ -27,9 +28,17 @@ export default function View() {
           <div>{item?.author}</div>
           <div>{item?.intro}</div>
           <div>{item?.completed ? "Leido" : "Por terminar"}</div>
+          <div>{item?.favourite ? "Favorito" : "Lista normal"}</div>
           <div>{item?.review}</div>
+          <div className="conDeleteBook">
+            <button className="deleteBook" onClick={() => deleteItem(item.id)}>
+              Delete Book
+            </button>
+          </div>
         </div>
       </div>
     </Layout>
   );
-}
+};
+
+export default View;

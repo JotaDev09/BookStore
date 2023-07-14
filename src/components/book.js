@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Book({ item }) {
+const Book = ({ item }) => {
   return (
     <div className="bookContainerStyle">
       <Link to={`/view/${item.id}`} className="bookInfoStyle">
@@ -9,4 +9,6 @@ export default function Book({ item }) {
       </Link>
     </div>
   );
-}
+};
+
+export default Book;

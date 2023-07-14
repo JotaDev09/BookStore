@@ -4,12 +4,13 @@ import { useAppContext } from "../store/store";
 import Layout from "../components/layout";
 import { useNavigate } from "react-router-dom";
 
-export default function Create() {
+const Create = () => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [cover, setCover] = useState("");
   const [intro, setIntro] = useState("");
   const [completed, setCompleted] = useState(false);
+  const [favourite, setFavourite] = useState(false);
   const [review, setReview] = useState("");
 
   const store = useAppContext();
@@ -31,6 +32,9 @@ export default function Create() {
         break;
       case "completed":
         setCompleted(e.target.checked);
+        break;
+      case "favourite":
+        setFavourite(e.target.checked);
         break;
       case "review":
         setReview(value);
@@ -62,6 +66,7 @@ export default function Create() {
       cover,
       intro,
       completed,
+      favourite,
       review,
     };
 
@@ -122,6 +127,16 @@ export default function Create() {
         </div>
 
         <div className="container">
+          <div className="title">Favourite</div>
+          <input
+            type="checkbox"
+            name="favourite"
+            onChange={handleChange}
+            value={favourite}
+          />
+        </div>
+
+        <div className="container">
           <div className="title">Review</div>
           <input
             type="text"
@@ -134,4 +149,6 @@ export default function Create() {
       </form>
     </Layout>
   );
-}
+};
+
+export default Create;
