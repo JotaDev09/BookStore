@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #282c34;
+  color: white;
 }
 
 code {
@@ -102,4 +103,11 @@ input {
   color: white;
   width: 800px;
   margin: o auto;
+}
+
+/* Searched book */
+.search_book {
+  width: 200px;
+  border: 1px solid white;
+  padding: 2px;
 }

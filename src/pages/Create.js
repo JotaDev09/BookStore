@@ -10,7 +10,6 @@ const Create = () => {
   const [cover, setCover] = useState("");
   const [intro, setIntro] = useState("");
   const [completed, setCompleted] = useState(false);
-  const [favourite, setFavourite] = useState(false);
   const [review, setReview] = useState("");
 
   const store = useAppContext();
@@ -32,9 +31,6 @@ const Create = () => {
         break;
       case "completed":
         setCompleted(e.target.checked);
-        break;
-      case "favourite":
-        setFavourite(e.target.checked);
         break;
       case "review":
         setReview(value);
@@ -65,12 +61,11 @@ const Create = () => {
       author,
       cover,
       intro,
+      favourite: false,
       completed,
-      favourite,
       review,
     };
 
-    //TODO mandar a registrar libro
     store.createItem(newBook);
     navigate("/");
   }
@@ -123,16 +118,6 @@ const Create = () => {
             name="completed"
             onChange={handleChange}
             value={completed}
-          />
-        </div>
-
-        <div className="container">
-          <div className="title">Favourite</div>
-          <input
-            type="checkbox"
-            name="favourite"
-            onChange={handleChange}
-            value={favourite}
           />
         </div>
 

@@ -1,7 +1,6 @@
 import { useAppContext } from "../store/store";
 import Layout from "../components/layout";
 import Book from "../components/book";
-import Api from "../api/api";
 
 const Index = () => {
   const store = useAppContext();
@@ -13,7 +12,6 @@ const Index = () => {
           <Book key={item.id} item={item} />
         ))}
       </div>
-      <Api></Api>
     </Layout>
   );
 };

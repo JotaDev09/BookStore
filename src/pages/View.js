@@ -1,21 +1,23 @@
 import { useParams } from "react-router-dom";
 import Layout from "../components/layout";
 import { useAppContext } from "../store/store";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const View = () => {
-  const [item, setItem] = useState({});
   const params = useParams();
-  const store = useAppContext();
-  const { deleteItem } = useAppContext();
+  const { getItem, updateItem, deleteItem } = useAppContext();
+  const item = getItem(params.bookId);
+  const [checked, setChecked] = useState(item?.favourite || false);
 
-  useEffect(() => {
-    const book = store.getItem(params.bookId);
-    setItem(book);
-  }, [params.bookId, store]);
   if (!item) {
     return <Layout>Item not found</Layout>;
   }
+
+  const handleCheckboxClick = () => {
+    const updatedItem = { ...item, favourite: !checked };
+    updateItem(updatedItem);
+    setChecked(!checked);
+  };
 
   return (
     <Layout>
@@ -27,9 +29,17 @@ const View = () => {
           <h2>{item?.title}</h2>
           <div>{item?.author}</div>
           <div>{item?.intro}</div>
+          <div>
+            <div>to favourite</div>
+            <input
+              type="checkbox"
+              checked={checked}
+              onChange={handleCheckboxClick}
+            ></input>
+          </div>
           <div>{item?.completed ? "Leido" : "Por terminar"}</div>
-          <div>{item?.favourite ? "Favorito" : "Lista normal"}</div>
           <div>{item?.review}</div>
+
           <div className="conDeleteBook">
             <button className="deleteBook" onClick={() => deleteItem(item.id)}>
               Delete Book

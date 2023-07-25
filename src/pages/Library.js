@@ -1,24 +1,28 @@
-import { Formik, Form, Field } from "formik";
 import { useState } from "react";
+import { Formik, Form, Field } from "formik";
+import Layout from "../components/layout";
+import { useAppContext } from "../store/store";
 
-const Api = () => {
+const Library = () => {
   const [books, setBooks] = useState([]);
-  const [wish, setWish] = useState([]);
-  //console.log(books);
+  const store = useAppContext();
 
-  function handleChange(e) {
-    const title = e.target.title;
+  const handleFavouriteChange = (bookId, isFavourite) => {
+    const updatedBooks = books.map((book) =>
+      book.id === bookId ? { ...book, favourite: isFavourite } : book
+    );
+    setBooks(updatedBooks);
 
-    switch (title) {
-      case "wish":
-        setWish(e.target.checked);
-        break;
-      default:
+    if (isFavourite) {
+      const bookToAddToFavourites = books.find((book) => book.id === bookId);
+      store.createItem({ ...bookToAddToFavourites, favourite: true });
+    } else {
+      store.deleteItem(bookId);
     }
-  }
+  };
 
   return (
-    <div>
+    <Layout>
       <Formik
         initialValues={{ search: "" }}
         onSubmit={async (values) => {
@@ -29,7 +33,11 @@ const Api = () => {
             const data = await response.json();
             console.log(data);
             if (Array.isArray(data.items)) {
-              setBooks(data.items);
+              const booksWithFavourites = data.items.map((book) => ({
+                ...book,
+                favourite: false,
+              }));
+              setBooks(booksWithFavourites);
             } else {
               console.log(
                 'La respuesta de la API no contiene un array en la propiedad "results".'
@@ -47,8 +55,8 @@ const Api = () => {
 
       <div>
         <div>
-          {books.map((book) => (
-            <article key={book.id}>
+          {books.slice(0, 10).map((book) => (
+            <article key={book.id} className="search_book">
               {book.volumeInfo && book.volumeInfo.imageLinks && (
                 <img src={book.volumeInfo.imageLinks.thumbnail} alt="" />
               )}
@@ -56,17 +64,18 @@ const Api = () => {
                 <div>to favourite</div>
                 <input
                   type="checkbox"
-                  name="wish"
-                  onChange={handleChange}
-                  value={wish}
-                ></input>
+                  checked={book.favourite}
+                  onChange={() =>
+                    handleFavouriteChange(book.id, !book.favourite)
+                  }
+                />
               </div>
             </article>
           ))}
         </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 
-export default Api;
+export default Library;
