@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useAppContext } from "../store/store";
-
 import Layout from "../components/layout";
 import { useNavigate } from "react-router-dom";
+import "./create.css";
 
 const Create = () => {
   const [title, setTitle] = useState("");
@@ -73,6 +73,9 @@ const Create = () => {
   return (
     <Layout>
       <form onSubmit={handleSubmit} className="formContainer">
+        <div className="create_title_cont">
+          <h1 className="create_title">Save your book</h1>
+        </div>
         <div className="container">
           <div className="title">Title</div>
           <input
@@ -95,8 +98,19 @@ const Create = () => {
 
         <div className="container">
           <div className="title">Cover</div>
-          <input type="file" name="cover" onChange={handleOnChangeFile} />
-          <div>
+          <div className="input_cover">
+            <input
+              className="selec_img"
+              type="file"
+              name="cover"
+              onChange={handleOnChangeFile}
+              id="fileInput"
+            />
+            <label className="label_cover" for="fileInput">
+              Load Cover
+            </label>
+          </div>
+          <div className="load_cover">
             {!!cover ? <img src={cover} width="200" alt="preview" /> : ""}
           </div>
         </div>
@@ -111,7 +125,7 @@ const Create = () => {
           />
         </div>
 
-        <div className="container">
+        <div className="container_completed container">
           <div className="title">Completed</div>
           <input
             type="checkbox"

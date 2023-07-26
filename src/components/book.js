@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import "./book.css";
 
 const Book = ({ item }) => {
   return (
     <div className="bookContainerStyle">
       <Link to={`/view/${item.id}`} className="bookInfoStyle">
-        <img src={item.cover} width="200" alt={item.title} />
-        <div>{item.title}</div>
+        <img className="book_cover" src={item.cover} alt={item.title} />
+        <div className="book_title">{item.title}</div>
       </Link>
     </div>
   );

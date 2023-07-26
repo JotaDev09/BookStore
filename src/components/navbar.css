@@ -1,0 +1,41 @@
+/* Navbar */
+.navContainerStyle {
+    width: 100%;
+    height: 52px;
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navBar_links {
+    width: 33%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.logoStyle {
+    width: 100px;
+    padding: 0 50px;
+}
+
+.navBar_center {
+    width: 66%;
+    height: 46px;
+    display: flex;
+    gap: 50px;
+}
+
+.linkStyle {
+    padding: 10px;
+    display: block;
+    font-size: 20px;
+    color: #2A2A79;
+    text-decoration: none;
+}
+
+.linkStyle:hover {
+    color: #00CFFF;
+    font-size: 22px;
+}
