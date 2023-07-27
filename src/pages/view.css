@@ -40,8 +40,10 @@
     gap: 20px;
 }
 
-.delete_cont {
+.buttons_cont {
+    display: flex;
     margin-top: 20px;
+    gap: 20px;
 }
 
 .delete_book {

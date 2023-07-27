@@ -42,13 +42,22 @@ const Store = ({ children }) => {
     setItems(filteredItems);
   }
 
+  function editItem(id) {
+    const item = getItem(id);
+
+    if (item) {
+      localStorage.setItem("editingItem", JSON.stringify(item));
+    }
+    window.location.href = "/create";
+  }
+
   useEffect(() => {
     localStorage.setItem(localStorageKey, JSON.stringify(items));
   }, [items]);
 
   return (
     <AppContext.Provider
-      value={{ items, createItem, getItem, updateItem, deleteItem }}
+      value={{ items, createItem, getItem, updateItem, deleteItem, editItem }}
     >
       {children}
     </AppContext.Provider>

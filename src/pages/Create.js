@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAppContext } from "../store/store";
 import Layout from "../components/layout";
 import { useNavigate } from "react-router-dom";
@@ -11,6 +11,8 @@ const Create = () => {
   const [intro, setIntro] = useState("");
   const [completed, setCompleted] = useState(false);
   const [review, setReview] = useState("");
+  const editingItemData = localStorage.getItem("editingItem");
+  const editingItem = editingItemData ? JSON.parse(editingItemData) : null;
 
   const store = useAppContext();
   const navigate = useNavigate();
@@ -69,6 +71,20 @@ const Create = () => {
     store.createItem(newBook);
     navigate("/");
   }
+
+  useEffect(() => {
+    if (editingItem) {
+      setTitle(editingItem.title);
+      setAuthor(editingItem.author);
+      setCover(editingItem.cover);
+      setIntro(editingItem.intro);
+      setCompleted(editingItem.completed);
+      setReview(editingItem.review);
+
+      // Clear the editingItem data from localStorage
+      localStorage.removeItem("editingItem");
+    }
+  }, [editingItem]);
 
   return (
     <Layout>

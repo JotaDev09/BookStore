@@ -6,7 +6,7 @@ import "./view.css";
 
 const View = () => {
   const params = useParams();
-  const { getItem, updateItem, deleteItem } = useAppContext();
+  const { getItem, updateItem, deleteItem, editItem } = useAppContext();
   const item = getItem(params.bookId);
   const [checked, setChecked] = useState(item?.favourite || false);
 
@@ -18,6 +18,10 @@ const View = () => {
     const updatedItem = { ...item, favourite: !checked };
     updateItem(updatedItem);
     setChecked(!checked);
+  };
+
+  const handleEditClick = () => {
+    editItem(item.id);
   };
 
   return (
@@ -57,9 +61,12 @@ const View = () => {
             <span>{item?.review}</span>
           </div>
 
-          <div className="delete_cont">
+          <div className="buttons_cont">
             <button className="delete_book" onClick={() => deleteItem(item.id)}>
               Delete Book
+            </button>
+            <button className="delete_book" onClick={handleEditClick}>
+              Edit Book
             </button>
           </div>
         </div>
