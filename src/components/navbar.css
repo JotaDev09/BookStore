@@ -27,6 +27,7 @@
     height: 46px;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 50px;
 }
 
@@ -41,4 +42,73 @@
 .linkStyle:hover {
     color: #00CFFF;
     font-size: 22px;
+}
+
+@media(width < 900px) {
+    .navBar_links {
+        position: initial;
+    }
+
+    .navBar_center {
+        position: initial;
+        padding-right: 50px;
+    }
+}
+
+@media(width < 700px) {
+    .navBar_center {
+        gap: 15px;
+    }
+
+    .logoStyle {
+        padding: 5px 15px;
+    }
+}
+
+@media (width < 550px) {
+    .navContainerStyle {
+        height: 20px;
+    }
+
+    .logoStyle {
+        width: 80px;
+    }
+
+    .navBar_center {
+        gap: 0;
+    }
+
+    .linkStyle {
+        font-size: 18px;
+    }
+
+    .linkStyle:hover {
+        font-size: 19px;
+    }
+}
+
+@media (width < 450px) {
+    .logoStyle {
+        padding: 5px;
+        width: 70px;
+    }
+
+    .navBar_center {
+        padding-right: 10px;
+    }
+
+    .linkStyle {
+        font-size: 16px;
+        padding: 5px;
+    }
+
+    .linkStyle:hover {
+        font-size: 17px;
+    }
+}
+
+@media(width < 330px) {
+    .navBar_links {
+        display: none;
+    }
 }

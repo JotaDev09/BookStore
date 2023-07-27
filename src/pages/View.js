@@ -24,7 +24,11 @@ const View = () => {
     <Layout>
       <div className="container_view">
         <div className="view_cover">
-          {item?.cover ? <img src={item?.cover} width="400" alt="" /> : ""}
+          {item?.cover ? (
+            <img className="cover_img" src={item?.cover} alt="" />
+          ) : (
+            ""
+          )}
         </div>
         <div className="view_info">
           <h2>Title: {item?.title}</h2>

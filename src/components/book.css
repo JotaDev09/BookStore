@@ -26,3 +26,5 @@
 .book_title {
     text-transform: capitalize;
 }
+
+@media(width < 500px) {}

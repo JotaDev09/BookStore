@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../components/layout";
 import { useAppContext } from "../store/store";
 import Book from "../components/book";
+import "./index.css";
 
 const Favourites = () => {
   const store = useAppContext();
@@ -10,7 +11,7 @@ const Favourites = () => {
 
   return (
     <Layout>
-      <div>
+      <div className="booksContainer">
         {favouriteItems.map((item) => (
           <Book key={item.id} item={item} />
         ))}
