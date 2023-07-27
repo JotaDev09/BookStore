@@ -34,6 +34,7 @@ const Store = ({ children }) => {
     const temp = [...items];
 
     temp[index] = { ...item };
+    setItems(temp);
   }
 
   function deleteItem(id) {

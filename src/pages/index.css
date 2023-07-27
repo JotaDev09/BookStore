@@ -1,0 +1,13 @@
+/* Index */
+.booksContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+}
+
+.home_title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

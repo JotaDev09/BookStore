@@ -10,7 +10,8 @@
 }
 
 .navBar_links {
-    width: 33%;
+    position: absolute;
+    width: 100%;
     display: flex;
     justify-content: flex-start;
 }
@@ -21,9 +22,11 @@
 }
 
 .navBar_center {
-    width: 66%;
+    position: relative;
+    width: 100%;
     height: 46px;
     display: flex;
+    justify-content: center;
     gap: 50px;
 }
 

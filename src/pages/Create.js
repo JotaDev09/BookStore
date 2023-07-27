@@ -106,7 +106,7 @@ const Create = () => {
               onChange={handleOnChangeFile}
               id="fileInput"
             />
-            <label className="label_cover" for="fileInput">
+            <label className="label_cover" htmlFor="fileInput">
               Load Cover
             </label>
           </div>

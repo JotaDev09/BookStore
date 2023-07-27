@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import Layout from "../components/layout";
+import "./library.css";
 
 const Library = () => {
   const [books, setBooks] = useState([]);
@@ -29,21 +30,24 @@ const Library = () => {
           }
         }}
       >
-        <Form>
+        <Form className="search_cont">
+          <h1>Find a Book</h1>
           <Field name="search" />
         </Form>
       </Formik>
 
-      <div>
-        <div>
-          {books.slice(0, 10).map((book) => (
-            <article key={book.id} className="search_book">
-              {book.volumeInfo && book.volumeInfo.imageLinks && (
-                <img src={book.volumeInfo.imageLinks.thumbnail} alt="" />
-              )}
-            </article>
-          ))}
-        </div>
+      <div className="search_books_cont">
+        {books.slice(0, 10).map((book) => (
+          <article key={book.id} className="search_book">
+            {book.volumeInfo && book.volumeInfo.imageLinks && (
+              <img src={book.volumeInfo.imageLinks.thumbnail} alt="No cover" />
+            )}
+            <span>{book.volumeInfo.title}</span>
+            {book.volumeInfo.authors && book.volumeInfo.authors.length > 0 && (
+              <span>{book.volumeInfo.authors[0]}</span>
+            )}
+          </article>
+        ))}
       </div>
     </Layout>
   );
