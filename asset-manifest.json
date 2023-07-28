@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/github.io/BookStore/static/css/main.9cd624ae.css",
-    "main.js": "/github.io/BookStore/static/js/main.1a1843cf.js",
-    "static/js/787.45e29f50.chunk.js": "/github.io/BookStore/static/js/787.45e29f50.chunk.js",
-    "index.html": "/github.io/BookStore/index.html",
-    "main.9cd624ae.css.map": "/github.io/BookStore/static/css/main.9cd624ae.css.map",
-    "main.1a1843cf.js.map": "/github.io/BookStore/static/js/main.1a1843cf.js.map",
-    "787.45e29f50.chunk.js.map": "/github.io/BookStore/static/js/787.45e29f50.chunk.js.map"
+    "main.css": "/BookStore/static/css/main.9cd624ae.css",
+    "main.js": "/BookStore/static/js/main.26349efe.js",
+    "static/js/787.45e29f50.chunk.js": "/BookStore/static/js/787.45e29f50.chunk.js",
+    "index.html": "/BookStore/index.html",
+    "main.9cd624ae.css.map": "/BookStore/static/css/main.9cd624ae.css.map",
+    "main.26349efe.js.map": "/BookStore/static/js/main.26349efe.js.map",
+    "787.45e29f50.chunk.js.map": "/BookStore/static/js/787.45e29f50.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9cd624ae.css",
-    "static/js/main.1a1843cf.js"
+    "static/js/main.26349efe.js"
   ]
 }
